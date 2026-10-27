@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Guia do Autismo — Aprender e Acolher. Transforme a rotina, a comunicação e o acolhimento do seu filho com estratégias práticas.">
+  <title>Guia do Autismo | Aprender e Acolher</title>
+
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --azul-escuro: #092347;
+      --azul-primario: #0e52b5;
+      --azul-claro: #ebf4ff;
+      --amarelo: #ffb703;
+      --verde-seguranca: #10b981;
+      --texto-corpo: #334155;
+      --texto-titulo: #0f172a;
+      --cinza-bg: #f8fafc;
+      --borda: #e2e8f0;
+      --sombra: 0 10px 25px -5px rgba(9, 35, 71, 0.08), 0 8px 10px -6px rgba(9, 35, 71, 0.04);
+      --sombra-card: 0 20px 30px -10px rgba(0, 0, 0, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      color: var(--texto-corpo);
+      background: #ffffff;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* BARRA DE AVISO NO TOPO */
+    .top-bar {
+      background: linear-gradient(90deg, #092347, #0e52b5);
+      color: #ffffff;
+      text-align: center;
+      padding: 10px 15px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    /* HEADER */
+    header {
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(8px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 16px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--borda);
+    }
+
+    .marca {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      font-size: 18px;
+      color: var(--azul-escuro);
+    }
+
+    .marca span {
+      color: var(--azul-primario);
+    }
+
+    /* BOTÕES DE COMPRA */
+    .btn-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #ffc107, #ff9800);
+      color: #092347;
+      padding: 17px 34px;
+      font-size: 16px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      text-decoration: none;
+      border-radius: 50px;
+      box-shadow: 0 10px 25px rgba(255, 152, 0, 0.4);
+      transition: all 0.3s ease;
+      animation: pulsar 2s infinite ease-in-out;
+    }
+
+    .btn-cta:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 14px 30px rgba(255, 152, 0, 0.55);
+    }
+
+    .btn-cta-nav {
+      padding: 11px 22px;
+      font-size: 13px;
+      animation: none;
+    }
+
+    @keyframes pulsar {
+      0% { box-shadow: 0 0 0 0 rgba(255, 183, 3, 0.6); }
+      70% { box-shadow: 0 0 0 14px rgba(255, 183, 3, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(255, 183, 3, 0); }
+    }
+
+    /* HERO SECTION */
+    .hero {
+      background: radial-gradient(circle at top right, #17427d, #092347);
+      color: white;
+      padding: 65px 8% 85px;
+    }
+
+    .hero-container {
+      max-width: 1200px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      align-items: center;
+      gap: 50px;
+    }
+
+    .tag-destaque {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      color: #ffd15d;
+      padding: 8px 16px;
+      border-radius: 30px;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: clamp(32px, 4.3vw, 52px);
+      line-height: 1.18;
+      font-weight: 800;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 span {
+      color: var(--amarelo);
+    }
+
+    .hero p {
+      font-size: 18px;
+      line-height: 1.6;
+      color: #cbd5e1;
+      margin-bottom: 30px;
+    }
+
+    .hero-foto-destaque {
+      position: relative;
+    }
+
+    .foto-crianca-hero {
+      width: 100%;
+      height: 480px;
+      object-fit: cover;
+      border-radius: 24px;
+      border: 4px solid rgba(255, 255, 255, 0.15);
+      box-shadow: 0 25px 50px -10px rgba(0, 0, 0, 0.5);
+    }
+
+    .hero-badge-flutuante {
+      position: absolute;
+      bottom: -20px;
+      left: 20px;
+      background: white;
+      color: var(--azul-escuro);
+      padding: 14px 22px;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .selos-seguranca {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 25px;
+      font-size: 13px;
+      color: #94a3b8;
+      font-weight: 600;
+    }
+
+    /* SEÇÕES GERAIS */
+    section {
+      padding: 80px 8%;
+    }
+
+    .titulo-secao {
+      text-align: center;
+      max-width: 780px;
+      margin: 0 auto 50px;
+    }
+
+    .subtitulo-tag {
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--azul-primario);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .titulo-secao h2 {
+      font-size: clamp(26px, 3.5vw, 40px);
+      color: var(--texto-titulo);
+      font-weight: 800;
+      margin-top: 8px;
+    }
+
+    .titulo-secao p {
+      color: #64748b;
+      font-size: 17px;
+      margin-top: 10px;
+    }
+
+    /* CARDS COM FOTOS (PÚBLICO-ALVO) */
+    .grid-fotos-publico {
+      max-width: 1150px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .card-foto {
+      background: white;
+      border: 1px solid var(--borda);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: var(--sombra);
+      transition: all 0.3s ease;
+    }
+
+    .card-foto:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--sombra-card);
+    }
+
+    .card-foto img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .card-foto-info {
+      padding: 24px;
+    }
+
+    .card-foto-info h3 {
+      font-size: 19px;
+      color: var(--azul-escuro);
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    .card-foto-info p {
+      color: var(--texto-corpo);
+      font-size: 14px;
+    }
+
+    /* CONTEÚDO PRÁTICO */
+    .bg-cinza {
+      background: var(--cinza-bg);
+    }
+
+    .cartoes-conteudo {
+      max-width: 1150px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .cartao {
+      background: white;
+      padding: 35px 25px;
+      border: 1px solid var(--borda);
+      border-radius: 20px;
+      box-shadow: var(--sombra);
+    }
+
+    .icone-card {
+      font-size: 38px;
+      background: var(--azul-claro);
+      width: 70px;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 16px;
+      margin-bottom: 20px;
+    }
+
+    .cartao h3 {
+      font-size: 20px;
+      color: var(--azul-escuro);
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
+
+    .cartao p {
+      color: #64748b;
+      font-size: 15px;
+    }
+
+    /* SEÇÃO HISTÓRIAS / DEPOIMENTOS */
+    .grid-depoimentos {
+      max-width: 1100px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .card-depoimento {
+      background: white;
+      border: 1px solid var(--borda);
+      padding: 26px;
+      border-radius: 20px;
+      box-shadow: var(--sombra);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .estrelas {
+      color: #ffb703;
+      margin-bottom: 12px;
+      font-size: 16px;
+    }
+
+    .depoimento-texto {
+      font-size: 14px;
+      color: #475569;
+      font-style: italic;
+      margin-bottom: 20px;
+    }
+
+    .autor-box {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .autor-foto {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .autor-nome {
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--azul-escuro);
+    }
+
+    .autor-cargo {
+      font-size: 12px;
+      color: #94a3b8;
+    }
+
+    /* GARANTIA */
+    .garantia-box {
+      max-width: 850px;
+      margin: auto;
+      background: #ffffff;
+      border: 2px dashed #93c5fd;
+      border-radius: 24px;
+      padding: 40px;
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .garantia-badge {
+      font-size: 70px;
+    }
+
+    .garantia-box h3 {
+      font-size: 22px;
+      color: var(--azul-escuro);
+      margin-bottom: 8px;
+      font-weight: 800;
+    }
+
+    .garantia-box p {
+      color: #64748b;
+      font-size: 15px;
+    }
+
+    /* CARD FINAL DE CHAMADA */
+    .fundo-cta-final {
+      background: linear-gradient(135deg, #092347, #0e52b5);
+      color: white;
+      text-align: center;
+      border-radius: 24px;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 60px 30px;
+      box-shadow: 0 20px 40px rgba(9, 35, 71, 0.2);
+    }
+
+    .fundo-cta-final h2 {
+      font-size: clamp(28px, 4vw, 42px);
+      margin-bottom: 16px;
+      font-weight: 800;
+    }
+
+    .fundo-cta-final p {
+      max-width: 650px;
+      margin: 0 auto 30px;
+      color: #cbd5e1;
+      font-size: 18px;
+    }
+
+    /* FAQ */
+    .faq-container {
+      max-width: 780px;
+      margin: auto;
+    }
+
+    details {
+      background: white;
+      margin-bottom: 12px;
+      border-radius: 12px;
+      border: 1px solid var(--borda);
+      overflow: hidden;
+    }
+
+    details[open] {
+      border-color: var(--azul-primario);
+    }
+
+    summary {
+      padding: 18px 24px;
+      font-weight: 700;
+      color: var(--azul-escuro);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      list-style: none;
+    }
+
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    summary::after {
+      content: '+';
+      font-size: 22px;
+      color: var(--azul-primario);
+    }
+
+    details[open] summary::after {
+      content: '−';
+    }
+
+    details p {
+      padding: 0 24px 20px;
+      color: #64748b;
+      font-size: 15px;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--azul-escuro);
+      color: #94a3b8;
+      padding: 50px 8% 30px;
+      text-align: center;
+      font-size: 13px;
+    }
+
+    footer strong {
+      color: white;
+      font-size: 16px;
+    }
+
+    .aviso-legal {
+      max-width: 700px;
+      margin: 15px auto;
+      font-size: 12px;
+      color: #64748b;
+    }
+
+    /* RESPONSIVIDADE */
+    @media (max-width: 900px) {
+      .hero-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .tag-destaque, .selos-seguranca {
+        justify-content: center;
+      }
+      .foto-crianca-hero {
+        height: 350px;
+      }
+      .grid-fotos-publico, .cartoes-conteudo, .grid-depoimentos {
+        grid-template-columns: 1fr;
+      }
+      .garantia-box {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- TOPO -->
+  <div class="top-bar">
+    💙 MATERIAL EDUCATIVO COMPLETO • ACESSO IMEDIATO APÓS A CONFIRMAÇÃO
+  </div>
+
+  <!-- CABEÇALHO -->
+  <header>
+    <div class="marca">
+      🧩 APRENDER & ACOLHER
+    </div>
+    <a class="btn-cta btn-cta-nav" href="https://blackpix.ai.studio/checkout/oferta-caf01153">
+      QUERO O GUIA →
+    </a>
+  </header>
+
+  <main>
+
+    <!-- HERO SECTION COM FOTO DE CRIANÇA AUTISTA E INTERAÇÃO -->
+    <section class="hero">
+      <div class="hero-container">
+
+        <div>
+          <div class="tag-destaque">
+            ⭐ GUIA EDUCATIVO E PRÁTICO PARA FAMÍLIAS
+          </div>
+
+          <h1>
+            Aprenda a entender, apoiar e <span>acolher o autismo com leveza.</span>
+          </h1>
+
+          <p>
+            Um caminho seguro e afetuoso para pais, mães e cuidadores que buscam estratégias reais para transformar desafios sensoriais, comunicação e crises em desenvolvimento e conexão.
+          </p>
+
+          <a class="btn-cta" href="https://blackpix.ai.studio/checkout/oferta-caf01153">
+            GARANTIR MEU ACESSO AGORA →
+          </a>
+
+          <div class="selos-seguranca">
+            <span>🔒 Compra 100% Segura</span>
+            <span>⚡ Acesso Imediato</span>
+            <span>📱 Celular, Tablet e Computador</span>
+          </div>
+        </div>
+
+        <!-- FOTO EM ALTA RESOLUÇÃO: CRIANÇA EM ATIVIDADE / DESENVOLVIMENTO -->
+        <div class="hero-foto-destaque">
+          <img
+            class="foto-crianca-hero"
+            src="https://images.unsplash.com/photo-1596464716127-f2a82984de30?auto=format&fit=crop&w=900&q=80"
+            alt="Criança brincando e desenvolvendo habilidades de concentração"
+          >
+          <div class="hero-badge-flutuante">
+            <span style="font-size: 24px;">🧩</span>
+            <span>Mais de 1.200 famílias transformadas</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- QUEM VAI SE BENEFICIAR COM O GUIA (COM FOTOS REAIS) -->
+    <section>
+      <div class="titulo-secao">
+        <span class="subtitulo-tag">Para quem é o guia</span>
+        <h2>Um apoio diário para quem convive com o TEA</h2>
+        <p>Criado para transformar o medo da incerteza em acolhimento e atitudes práticas que funcionam.</p>
+      </div>
+
+      <div class="grid-fotos-publico">
+
+        <div class="card-foto">
+          <img
+            src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=700&q=80"
+            alt="Mãe acolhendo e apoiando a criança com amor e paciência"
+          >
+          <div class="card-foto-info">
+            <h3>Mães e Pais</h3>
+            <p>Que buscam entender como agir diante de crises, desregulações sensoriais e como estimular a independência em casa.</p>
+          </div>
+        </div>
+
+        <div class="card-foto">
+          <img
+            src="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&w=700&q=80"
+            alt="Profissional e cuidador aplicando dinâmicas pedagógicas inclusivas"
+          >
+          <div class="card-foto-info">
+            <h3>Cuidadores e Familiares</h3>
+            <p>Para avós, tios e cuidadores aprenderem a respeitar os limites, criar vínculo seguro e participar ativamente da rotina.</p>
+          </div>
+        </div>
+
+        <div class="card-foto">
+          <img
+            src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=700&q=80"
+            alt="Professora mediadora apoiando aluno no ambiente escolar"
+          >
+          <div class="card-foto-info">
+            <h3>Educadores e Mediadores</h3>
+            <p>Estratégias pedagógicas e de acolhimento para adaptar a sala de aula e promover a verdadeira inclusão escolar.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- O QUE VOCÊ VAI APRENDER -->
+    <section class="bg-cinza">
+      <div class="titulo-secao">
+        <span class="subtitulo-tag">Conteúdo Estruturado</span>
+        <h2>O que você vai encontrar no material?</h2>
+        <p>Linguagem simples, sem termos médicos difíceis. Direto ao ponto para você aplicar hoje mesmo.</p>
+      </div>
+
+      <div class="cartoes-conteudo">
+        <article class="cartao">
+          <div class="icone-card">📘</div>
+          <h3>Compreensão do Espectro</h3>
+          <p>Entenda como a mente da criança autista processa os estímulos ao redor e descubra as causas reais das crises sensoriais.</p>
+        </article>
+
+        <article class="cartao">
+          <div class="icone-card">🗓️</div>
+          <h3>Rotina & Previsibilidade</h3>
+          <p>Modelos práticos de quadros de rotina visual para diminuir a ansiedade e evitar comportamentos desafiadores.</p>
+        </article>
+
+        <article class="cartao">
+          <div class="icone-card">💙</div>
+          <h3>Acolhimento Familiar</h3>
+          <p>Ferramentas para preservar a saúde mental dos pais e cuidadores, reduzindo a sobrecarga e a culpa na criação.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- DEPOIMENTOS COM FOTO DE PERFIL -->
+    <section>
+      <div class="titulo-secao">
+        <span class="subtitulo-tag">Histórias de Sucesso</span>
+        <h2>O que dizem as famílias que já aplicam o guia</h2>
+        <p>Resultados reais de quem decidiu transformar a rotina do seu filho com informação e carinho.</p>
+      </div>
+
+      <div class="grid-depoimentos">
+
+        <div class="card-depoimento">
+          <div>
+            <div class="estrelas">★★★★★</div>
+            <p class="depoimento-texto">"Mudou completamente as manhãs aqui em casa. As crises diminuíram muito depois que comecei a usar a técnica de rotina que está no material."</p>
+          </div>
+          <div class="autor-box">
+            <img class="autor-foto" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=150&q=80" alt="Foto Mariana">
+            <div>
+              <div class="autor-nome">Mariana Vasconcelos</div>
+              <div class="autor-cargo">Mãe do Theo (5 anos)</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-depoimento">
+          <div>
+            <div class="estrelas">★★★★★</div>
+            <p class="depoimento-texto">"Linguagem simples e didática. Até passei para a escola do meu filho para que as professoras também aplicassem o acolhimento correto."</p>
+          </div>
+          <div class="autor-box">
+            <img class="autor-foto" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80" alt="Foto Rodrigo">
+            <div>
+              <div class="autor-nome">Rodrigo Almeida</div>
+              <div class="autor-cargo">Pai de autista nível 1 de suporte</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-depoimento">
+          <div>
+            <div class="estrelas">★★★★★</div>
+            <p class="depoimento-texto">"O guia me deu a segurança que eu não tive no momento do laudo. Super recomendo a todas as mães e cuidadores!"</p>
+          </div>
+          <div class="autor-box">
+            <img class="autor-foto" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=150&q=80" alt="Foto Juliana">
+            <div>
+              <div class="autor-nome">Juliana Castro</div>
+              <div class="autor-cargo">Mãe atípica & Educadora</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- GARANTIA BLINDADA -->
+    <section class="bg-cinza" style="padding-top: 50px; padding-bottom: 50px;">
+      <div class="garantia-box">
+        <div class="garantia-badge">🛡️</div>
+        <div>
+          <h3>Garantia Incondicional de 7 Dias</h3>
+          <p>Você tem 7 dias completos para ler o guia e testar na sua rotina. Se sentir que este conteúdo não transformou para melhor a sua convivência e conhecimento, você recebe 100% do seu dinheiro de volta. Risco zero para você.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHAMADA FINAL DE CONVERSÃO -->
+    <section>
+      <div class="fundo-cta-final">
+        <h2>Seu filho merece o melhor acolhimento possível</h2>
+        <p>Dê um passo definitivo para um lar mais calmo, compreensivo e preparado para o neurodesenvolvimento.</p>
+        <a class="btn-cta" href="https://blackpix.ai.studio/checkout/oferta-caf01153">
+          QUERO GARANTIR O MEU ACESSO AGORA →
+        </a>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="bg-cinza">
+      <div class="titulo-secao">
+        <span class="subtitulo-tag">Dúvidas Frequentes</span>
+        <h2>Perguntas Comuns</h2>
+      </div>
+
+      <div class="faq-container">
+        <details>
+          <summary>Como recebo o acesso ao material?</summary>
+          <p>O envio é digital e instantâneo. Assim que o pagamento for concluído (no PIX a liberação é imediata), você recebe por e-mail as orientações para download do guia e acesso aos recursos.</p>
+        </details>
+
+        <details>
+          <summary>Serve para crianças de qual idade?</summary>
+          <p>As estratégias de acolhimento, regulação sensorial e apoio à comunicação são fundamentais desde os primeiros anos de vida até a infância e fase escolar.</p>
+        </details>
+
+        <details>
+          <summary>Quais são as formas de pagamento?</summary>
+          <p>Você pode pagar via PIX de forma rápida ou no Cartão de Crédito com ambiente 100% seguro e criptografado.</p>
+        </details>
+
+        <details>
+          <summary>Este guia substitui os terapeutas da criança?</summary>
+          <p>Não. Este material é educativo e focado na convivência familiar. Ele serve como complemento para a família e não substitui diagnósticos médicos ou terapias especializadas (T.O, Fonoaudiologia, ABA, etc.).</p>
+        </details>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- RODAPÉ -->
+  <footer>
+    <strong>🧩 Aprender e Acolher — Guia do Autismo</strong>
+
+    <p class="aviso-legal">
+      Aviso Legal: As orientações contidas neste material têm propósito educativo e reflexivo para a família. Cada pessoa dentro do Transtorno do Espectro Autista (TEA) possui individualidades que devem ser acompanhadas por profissionais da saúde.
+    </p>
+
+    <p>© 2026 Aprender e Acolher. Todos os direitos reservados.</p>
+  </footer>
+
+</body>
+</html>
